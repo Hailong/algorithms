@@ -1,6 +1,6 @@
-/*
+/**
  * Bubble Sort
- * Reference: https://www.geeksforgeeks.org/bubble-sort/
+ * @see https://www.geeksforgeeks.org/bubble-sort/
  */
 function bubbleSort (arr) {
   for (let i = 0; i < arr.length; i++) {

@@ -1,6 +1,6 @@
-/*
+/**
  * Quick Sort
- * Reference: https://www.geeksforgeeks.org/quick-sort/
+ * @see https://www.geeksforgeeks.org/quick-sort/
  */
 function quickSort (arr, low, high) {
   if (low >= high) {

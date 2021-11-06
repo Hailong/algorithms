@@ -1,6 +1,6 @@
-/*
+/**
  * Merge Sort
- * Reference: https://www.geeksforgeeks.org/merge-sort/
+ * @see https://www.geeksforgeeks.org/merge-sort/
  */
 function mergeSort (arr, low, high) {
   if (low >= high) {

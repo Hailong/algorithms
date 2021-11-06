@@ -1,6 +1,6 @@
-/*
+/**
  * Insertion Sort
- * Reference: https://www.geeksforgeeks.org/insertion-sort/
+ * @see https://www.geeksforgeeks.org/insertion-sort/
  */
 function insertionSort (arr) {
   for (let i = 1; i < arr.length; i++) {

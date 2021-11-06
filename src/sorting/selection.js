@@ -1,6 +1,6 @@
-/*
+/**
  * Selection Sort
- * Reference: https://www.geeksforgeeks.org/selection-sort/
+ * @see https://www.geeksforgeeks.org/selection-sort/
  */
 function selectionSort (arr) {
   for (let i = 0; i < arr.length; i++) {
