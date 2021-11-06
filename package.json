@@ -1,5 +1,5 @@
 {
-  "name": "algorithms",
+  "name": "@zhl/algorithms",
   "version": "1.0.0",
   "description": "Algorithms written in JavaScript",
   "main": "index.js",
