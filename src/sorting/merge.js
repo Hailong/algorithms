@@ -17,10 +17,17 @@ function mergeSort (arr, low, high) {
 
   let i = 0
   let j = 0
-  let k = 0
+  let k = low
 
   while (i <= mid - low && j <= high - mid - 1) {
-    arr[k++] = left[i] < right[j] ? left[i++] : right[j++]
+    if (left[i] < right[j]) {
+      arr[k++] = left[i++]
+    } else if (left[i] > right[j]) {
+      arr[k++] = right[j++]
+    } else {
+      arr[k++] = left[i++]
+      arr[k++] = right[j++]
+    }
   }
 
   while (i <= mid - low) {
