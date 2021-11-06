@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx jest",
-    "doc": "npx jsdoc src/* -d ./jsdoc; git add ./jsdoc/."
+    "doc": "npx jsdoc src/* -d ./docs; git add ./docs/."
   },
   "repository": {
     "type": "git",
