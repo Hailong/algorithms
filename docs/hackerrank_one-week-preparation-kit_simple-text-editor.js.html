@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: hackerrank/one-week-preparation-kit/queue-using-two-stacks.js</title>
+    <title>JSDoc: Source: hackerrank/one-week-preparation-kit/simple-text-editor.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: hackerrank/one-week-preparation-kit/queue-using-two-stacks.js</h1>
+    <h1 class="page-title">Source: hackerrank/one-week-preparation-kit/simple-text-editor.js</h1>
 
     
 
@@ -27,80 +27,43 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * Queue using Two Stacks
- * @see https://www.hackerrank.com/challenges/one-week-preparation-kit-queue-using-two-stacks/problem
- */
-class Queue {
-  constructor () {
-    this.inStack = []
-    this.outStack = []
-  }
-
-  loadOutStack () {
-    while (this.inStack.length > 0) {
-      this.outStack.push(this.inStack.pop())
-    }
-  }
-
-  peekOutStack () {
-    if (this.outStack.length > 0) {
-      return this.outStack[this.outStack.length - 1]
-    }
-
-    return undefined
-  }
-
-  enqueue (value) {
-    this.inStack.push(value)
-  }
-
-  dequeue () {
-    if (this.outStack.length > 0) {
-      return this.outStack.pop()
-    }
-
-    this.loadOutStack()
-
-    return this.outStack.pop()
-  }
-
-  front () {
-    if (this.peekOutStack()) {
-      return this.peekOutStack()
-    }
-
-    this.loadOutStack()
-
-    return this.peekOutStack()
-  }
-}
-
-/**
- * Queue using Two Stacks
- * @see https://www.hackerrank.com/challenges/one-week-preparation-kit-queue-using-two-stacks/problem
+ * Simple Text Editor
+ * @see https://www.hackerrank.com/challenges/one-week-preparation-kit-simple-text-editor/problem
  */
 function processData (input) {
   const lines = input.split('\n')
-  const queue = new Queue()
+  let editor = ''
+  const undos = []
 
-  lines.slice(1).forEach(query => {
-    const [type, value] = query.split(' ')
-
-    switch (type) {
+  const execute = (operation, argument, undoing = false) => {
+    switch (operation) {
       case '1':
-        queue.enqueue(value)
+        if (undoing == false) {
+          undos.push(['2', argument.length])
+        }
+        editor = editor.concat(argument)
         break
-
       case '2':
-        queue.dequeue()
+        argument = parseInt(argument)
+        if (undoing === false) {
+          undos.push(['1', editor.slice(editor.length - argument)])
+        }
+        editor = editor.slice(0, editor.length - argument)
         break
-
       case '3':
-        if (queue.front()) {
-          console.log(queue.front())
+        console.log(editor.charAt(argument - 1))
+        break
+      case '4':
+        if (undos.length > 0) {
+          execute(...undos.pop(), true)
         }
         break
     }
+  }
+
+  lines.slice(1).forEach(line => {
+    const [operation, argument] = line.split(' ')
+    execute(operation, argument)
   })
 }
 

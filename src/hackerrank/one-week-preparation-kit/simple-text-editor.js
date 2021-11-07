@@ -1,3 +1,7 @@
+/**
+ * Simple Text Editor
+ * @see https://www.hackerrank.com/challenges/one-week-preparation-kit-simple-text-editor/problem
+ */
 function processData (input) {
   const lines = input.split('\n')
   let editor = ''
