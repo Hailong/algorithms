@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: sorting/selection.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,37 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: sorting/selection.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Selection Sort
+ * @see https://www.geeksforgeeks.org/selection-sort/
+ */
+function selectionSort (arr) {
+  for (let i = 0; i &lt; arr.length; i++) {
+    let minIdx = i
 
+    for (let j = i + 1; j &lt; arr.length; j++) {
+      if (arr[j] &lt; arr[minIdx]) {
+        minIdx = j
+      }
+    }
 
-    <h3> </h3>
+    [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]]
+  }
+}
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = selectionSort
+</code></pre>
+        </article>
+    </section>
 
 
 

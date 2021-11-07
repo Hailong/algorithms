@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: sorting/quick.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,45 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: sorting/quick.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Quick Sort
+ * @see https://www.geeksforgeeks.org/quick-sort/
+ */
+function quickSort (arr, low, high) {
+  if (low >= high) {
+    return
+  }
 
+  const pivot = arr[high]
+  let cut = low - 1
 
-    <h3> </h3>
+  for (let i = low; i &lt; high; i++) {
+    if (arr[i] &lt; pivot) {
+      cut++
+      [arr[cut], arr[i]] = [arr[i], arr[cut]]
+    }
+  }
 
+  cut++
+  [arr[cut], arr[high]] = [arr[high], arr[cut]]
 
+  quickSort(arr, low, cut - 1)
+  quickSort(arr, cut + 1, high)
+}
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+module.exports = quickSort
+</code></pre>
+        </article>
+    </section>
 
 
 
